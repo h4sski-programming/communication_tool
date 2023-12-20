@@ -1,0 +1,44 @@
+<!-- base.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Using Bootstrap from a CDN (Content Delivery Network) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Bootstrap JS and Popper.js from a CDN -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-wMSc8rH+jzTbSiL59S9rgpdx1iMiDe9PSyUz9kF4PnWkoj4A6gQGiOfC4gyDFOw6" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjN7Zqou4MWl5c+o5YMlLsSW4dv/qDhHHV2uMGGgEF9iHIF5fksdDP6jxua6dke" crossorigin="anonymous"></script>
+
+    <title>{% block title %}{% endblock %}Communication Tree</title>
+    <!-- Add your CSS files or CDN links here -->
+</head>
+
+<body class="mx-5">
+
+    <header class="mb-5">
+        <nav class="nav">
+            <a class="nav-link m-1 py-1 btn btn-outline-primary" href="{% url 'index' %}">Piping Space Calculator</a>
+            <a class="nav-link m-1 py-1 btn btn-outline-secondary" href="{% url 'index' %}">Home</a>
+            <a class="nav-link m-1 py-1 btn btn-outline-secondary" href="/admin">Admin</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- This block will be overridden in child templates -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <!-- Add your footer content here -->
+    </footer>
+
+    <!-- Add your JavaScript files or CDN links here -->
+
+</body>
+
+</html>

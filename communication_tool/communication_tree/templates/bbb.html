@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+
+{% block title %} - aaa{% endblock %}
+
+{% block content %}
+
+<nav class="nav nav-pills mb-4">
+    <a class="nav-item nav-link border mr-2" href="#pn10">PN10</a>
+    <a class="nav-item nav-link border mr-2" href="#pn16">PN16</a>
+    <a class="nav-item nav-link border mr-2" href="#pn25">PN25</a>
+    <a class="nav-item nav-link border mr-2" href="#pn40">PN40</a>
+</nav>
+
+<h2 id="pn10">PN10</h2>
+<table class='table table-hover table-sm'>
+    <tr>
+        <th></th>
+        <th>Pipe</th>
+        {% for dn in space_table_pn10.keys %}
+        <th>DN{{ dn }}</th>
+        {% endfor %}
+    </tr>
+    <tr>
+        <th>Flange</th>
+        <td>OD [mm]</td>
+        {% for inner_dic in space_table_pn10.values %}
+        <td>{{ inner_dic.OD }}</td>
+        {% endfor %}
+    </tr>
+    {% for dn_flange, inner_dic in space_table_pn10.items %}
+    <tr>
+        <th>DN{{ dn_flange }}</th>
+        <td>{{ inner_dic.OD }}</td>
+        {% for dn_pipe, space in inner_dic.space_values.items %}
+            {% if dn_flange == dn_pipe %}
+            <td class="table-primary">
+            {% else %}
+            <td>
+            {% endif %}
+                {{ space }}
+            </td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+<h2 id="pn16">PN16</h2>
+<table class='table table-hover table-sm'>
+    <tr>
+        <th></th>
+        <th>Pipe</th>
+        {% for dn in space_table_pn16.keys %}
+        <th>DN{{ dn }}</th>
+        {% endfor %}
+    </tr>
+    <tr>
+        <th>Flange</th>
+        <td>OD [mm]</td>
+        {% for inner_dic in space_table_pn16.values %}
+        <td>{{ inner_dic.OD }}</td>
+        {% endfor %}
+    </tr>
+    {% for dn_flange, inner_dic in space_table_pn16.items %}
+    <tr>
+        <th>DN{{ dn_flange }}</th>
+        <td>{{ inner_dic.OD }}</td>
+        {% for dn_pipe, space in inner_dic.space_values.items %}
+            {% if dn_flange == dn_pipe %}
+            <td class="table-primary">
+            {% else %}
+            <td>
+            {% endif %}
+                {{ space }}
+            </td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+<h2 id="pn25">PN25</h2>
+<table class='table table-hover table-sm'>
+    <tr>
+        <th></th>
+        <th>Pipe</th>
+        {% for dn in space_table_pn25.keys %}
+        <th>DN{{ dn }}</th>
+        {% endfor %}
+    </tr>
+    <tr>
+        <th>Flange</th>
+        <td>OD [mm]</td>
+        {% for inner_dic in space_table_pn25.values %}
+        <td>{{ inner_dic.OD }}</td>
+        {% endfor %}
+    </tr>
+    {% for dn_flange, inner_dic in space_table_pn25.items %}
+    <tr>
+        <th>DN{{ dn_flange }}</th>
+        <td>{{ inner_dic.OD }}</td>
+        {% for dn_pipe, space in inner_dic.space_values.items %}
+            {% if dn_flange == dn_pipe %}
+            <td class="table-primary">
+            {% else %}
+            <td>
+            {% endif %}
+                {{ space }}
+            </td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+<h2 id="pn40">PN40</h2>
+<table class='table table-hover table-sm'>
+    <tr>
+        <th></th>
+        <th>Pipe</th>
+        {% for dn in space_table_pn40.keys %}
+        <th>DN{{ dn }}</th>
+        {% endfor %}
+    </tr>
+    <tr>
+        <th>Flange</th>
+        <td>OD [mm]</td>
+        {% for inner_dic in space_table_pn40.values %}
+        <td>{{ inner_dic.OD }}</td>
+        {% endfor %}
+    </tr>
+    {% for dn_flange, inner_dic in space_table_pn40.items %}
+    <tr>
+        <th>DN{{ dn_flange }}</th>
+        <td>{{ inner_dic.OD }}</td>
+        {% for dn_pipe, space in inner_dic.space_values.items %}
+            {% if dn_flange == dn_pipe %}
+            <td class="table-primary">
+            {% else %}
+            <td>
+            {% endif %}
+                {{ space }}
+            </td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+{% endblock %}
