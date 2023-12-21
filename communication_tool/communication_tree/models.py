@@ -25,3 +25,6 @@ class Member(models.Model):
     def __str__(self) -> str:
         return self.name
         # return f'{self.first_name} {self.last_name}'
+
+    def delete_member(self):
+        self.delete()

@@ -6,22 +6,24 @@
 
 <div>
     {% for team in teams %}
-    <div class="card card-body mb-3">
-        <div class="card-title row">
-            <a role="button" class="col btn btn-secondary" href="#">{{ team }}</a>
+    <div class="card card-body mb-3 py-2 px-3">
+        <div class="row mx-0 mb-2">
+            <a class="col btn btn-secondary" href="#">{{ team }}</a>
             <a class="col"></a>
-            <form method="post" action="{% url 'delete_team' team.id %}">
-                {% csrf_token %}
-                <button class="col-2 btn btn-outline-danger" type="submit">Delete Team</button>
-            </form>
+            <a class="col-2 btn btn-outline-secondary" href="{% url 'edit_team' team.id %}">Edit Team</a>
+            
         </div>
         <div>
             {% for member in team.members.all %}
-                <div class="card card-body mb-2">
-                    {{ member }}
+                <div class="row mx-0 mb-2 bg-light rounded">
+                    <span class="col">
+                        <span class="mr-2">{{ member }}</span>
+                        <small class="col text-secondary">{{ member.position }} @ {{ member.company }}</small>
+                    </span>
+                    <a class="col-2 btn btn-outline-secondary py-0" href="{% url 'edit_member' member.id %}">Edit</a>
                 </div>
             {% endfor %}
-            <a class="btn btn-outline-secondary" href="#">
+            <a class="btn btn-outline-secondary" href="{% url 'create_member' %}">
                 Add new member
             </a>
         </div>
@@ -32,45 +34,4 @@
     </a>
 </div>
 
-
-<hr/>
-
-<div>{{ team_1 }}</div>
-<div class="my-2">
-    {% for member in team_1_members %}
-    <a class="border px-2 py-1">{{ member }}</a>
-    {% endfor %}
-</div>
-<div>
-    {{ team_1.members.all }}
-</div>
-
-<hr/>
-
-<div>{{ aaabbb }}</div>
-<div>{{ aaabbb.team }}</div>
-
-<hr/>
-
-<table>
-    <tbody>
-        <tr>
-            <th>DN_1</th>
-            <th>DN_2</th>
-            <th>Flange</th>
-            <th>Min. gap</th>
-            <th>Insulation_1</th>
-            <th>Insulation_2</th>
-        </tr>
-        <tr>
-            <td>DN_1</td>
-            <td>DN_2</td>
-            <td>Flange</td>
-            <td>Min. gap</td>
-            <td>Insulation_1</td>
-            <td>Insulation_2</td>
-
-        </tr>
-    </tbody>
-</table>
 {% endblock %}

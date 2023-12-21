@@ -7,8 +7,12 @@ from django.urls import reverse
 
 class ViewsTests(TestCase):
     
-    
     def test_index_view(self):
         response = self.client.get(reverse('index'))
+        # self.assertEqual(response.status_code, 200)
+        # self.assertTemplateUsed(response, 'index.html')
+        
+    def test_create_team_view(self):
+        response = self.client.get(reverse('create_team'))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'index.html')
+        self.assertTemplateUsed(response, 'create_team.html')

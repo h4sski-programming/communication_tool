@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Team - {% endblock %}
+
+{% block content %}
+
+<h3>Edit Team</h3>
+<h4>{{ team.name }}</h4>
+
+<form method="post" action="{% url 'edit_team' team.id %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    
+    <button class="col-2 btn btn-primary" type="submit">Save</button>
+    <a class="col-2 btn btn-outline-secondary" href="{% url 'index' %}">Return</a>
+    <br/>
+    <a class="mt-4 btn btn-outline-danger" href="{% url 'delete_team' team.id %}">Delete Team</a>
+</form>
+<div class="mt-4">
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Create new Member - {% endblock %}
+
+{% block content %}
+
+<h3>Create new Member</h3>
+
+<form method="post" action="{% url 'create_member' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary" type="submit">Create Member</button>
+</form>
+
+
+{% endblock %}
